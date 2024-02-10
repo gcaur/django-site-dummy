@@ -1,0 +1,18 @@
+# profiles/views.py
+from django.shortcuts import render
+from .models import TeamMember, ResearchImpact, EvidenceResearch
+
+def contact(request):
+    return render(request, 'profiles/contact.html')
+
+def team(request):
+    team_members = TeamMember.objects.all()
+    return render(request, 'profiles/team.html', {'team_members': team_members})
+
+def impact(request):
+    impacts = ResearchImpact.objects.all()
+    return render(request, 'profiles/impact.html', {'impacts': impacts})
+
+def research(request):
+    research_items = EvidenceResearch.objects.all()
+    return render(request, 'profiles/research.html', {'research_items': research_items})
